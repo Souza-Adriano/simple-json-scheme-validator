@@ -1,12 +1,27 @@
 {
-  "name": "Validator",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "name": "simple-json-scheme-validator",
+  "description": "A simple JSON validator constructed with ts",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "type": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "publish": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Souza-Adriano/simple-json-scheme-validator"
+  },
+
   "dependencies": {
     "kind-of": "^6.0.3"
   },
+
   "devDependencies": {
     "@types/kind-of": "^6.0.0"
-  }
+  },
+
+  "homepage": "https://github.com/Souza-Adriano/simple-json-scheme-validator",
+  "author": "Adriano de Souza",
+  "license": "MIT"
 }

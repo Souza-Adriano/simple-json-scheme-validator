@@ -58,7 +58,7 @@ export default class StringValidator extends AbstractValidator<string> {
         if (this.type === 'undefined') { return this }
         try { dto[this.propertie] = process(this.value) }
         catch (error) { this.setResult(`${error.message}`, false); }
-        
+
         return this;
     }
 

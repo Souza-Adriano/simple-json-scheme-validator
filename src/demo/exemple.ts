@@ -1,11 +1,4 @@
-# Simple JSON Validator.
-
-## Um validador de JSON construido em typescript com o objetivo de aprender o processo de publicação de pacotes com typescript.
-<br/>
-
-## Exemple
-```typescript 
-import JsonValidator from 'simple-json-scheme-validator';
+import JsonValidator from '..';
 
 const obj = {
     name: '',
@@ -15,16 +8,24 @@ const obj = {
 
 const UserValidator = JsonValidator((validator, Body) => {
     validator.string(Body.name, 'name')
-        .required(true)
+        .required()
         .min(3)
         .max(50)
 
     validator.number(Body.age, 'age')
-        .required(true)
+        .required()
         .min(16)
 
     validator.string(Body.email, 'email')
+        .required()
         .email()
+
+    validator.list(Body.friends, 'friends', (validator, Body) => {
+        validator.string(Body, 'name')
+            .required(true)
+            .min(3)
+            .max(50);
+    })
 })
 
 try {
@@ -32,6 +33,3 @@ try {
 } catch(e) {
     throw e // if object fail on validate the error is catch here.
 }
-```
-
-*[by: Adriano de Souza](azuos.adriano@gmail.com)*

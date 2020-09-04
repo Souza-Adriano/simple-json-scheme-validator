@@ -1,23 +1,19 @@
-import StringValidator from './Core/String';
-import NumberValidator from './Core/Number';
-import BooleanValidator from './Core/Boolean';
+import Core from './Core'
 import { ValidatorSchema } from './Factory'
-import { cloneBody } from './Utils';
 
-export { StringValidator, NumberValidator, BooleanValidator }
 export default class Validator {
     constructor() {}
 
     public string(value:string, name: string) {
-        return new StringValidator(value, name);
+        return new Core.StringValidator(value, name);
     }
 
     public number(value: number, name: string) {
-        return new NumberValidator(value, name);
+        return new Core.NumberValidator(value, name);
     }
 
     public boolean(value: boolean, name: string) {
-        return new BooleanValidator(value, name);
+        return new Core.BooleanValidator(value, name);
     }
 
     public propertie(value: any, name: string) {
@@ -26,7 +22,7 @@ export default class Validator {
     }
 
     public list<T = any, R = T>(value: T[], name: string, validator: ValidatorSchema): R[] {
-        const result: any[] = value.map((item, index:) => {
+        const result: any[] = value.map((item, index) => {
             try {
                 validator(new Validator(), item)
                 return item;

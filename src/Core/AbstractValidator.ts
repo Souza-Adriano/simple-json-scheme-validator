@@ -1,6 +1,6 @@
 import KindOf from 'kind-of'
 
-type TypeValue = 'string' | 'number' | 'boolean'
+export type TypeValue = 'string' | 'number' | 'boolean'
 
 export default abstract class AbstractValidator<T> {
     protected propertie: string;
